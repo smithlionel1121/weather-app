@@ -11,11 +11,24 @@ import Container from "react-bootstrap/Container";
 export class App extends Component {
   constructor(props) {
     super(props);
+    let latitude;
+    let longitude;
+
+
+    if(!localStorage.getItem('YSYSWeatherApp.latitude') | !localStorage.getItem('YSYSWeatherApp.longitude')) {
+      latitude = 51.5085;
+      longitude = -0.1257;
+    } else {
+      latitude = localStorage.getItem('YSYSWeatherApp.latitude')
+      longitude = localStorage.getItem('YSYSWeatherApp.longitude')
+    }
+
+
     this.state = {
       theme: "dark",
       date: new Date(),
-      longitude: 51.5085,
-      latitude: -0.1257,
+      longitude,
+      latitude,
       data: { current: { temp: NaN } },
     };
   }
@@ -41,6 +54,8 @@ export class App extends Component {
       latitude: coords.latitude,
       longitude: coords.longitude,
     });
+    localStorage.setItem('YSYSWeatherApp.latitude', coords.latitude)
+    localStorage.setItem('YSYSWeatherApp.longitude', coords.longitude)
     this.collectData();
   };
 
@@ -59,6 +74,7 @@ export class App extends Component {
 
           {!!this.state.data.current.temp && (
             <div>
+              <h4>{this.state.data.timezone.split("/")[1]}</h4>
               <CurrentWeather
                 current={this.state.data.current}
                 theme={this.state.theme}

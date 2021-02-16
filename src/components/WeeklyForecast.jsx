@@ -43,7 +43,7 @@ export class WeeklyForecast extends Component {
                   </td>
                   <td className="d-none d-sm-table-cell">
                     <img
-                      src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+                      src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
                     />
                   </td>
                 </tr>

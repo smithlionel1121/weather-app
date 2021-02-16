@@ -22,7 +22,7 @@ export class CurrentWeather extends Component {
                 marginBottom: "-2rem",
                 marginTop: "-1rem",
               }}
-              src={`http://openweathermap.org/img/wn/${this.props.current.weather[0].icon}@4x.png`}
+              src={`https://openweathermap.org/img/wn/${this.props.current.weather[0].icon}@4x.png`}
             />
             <Card.Title>{this.props.current.temp}&deg;C</Card.Title>
             <Card.Text>

@@ -90,8 +90,6 @@ export class App extends Component {
   };
 
   handleAddressChange = (address) => {
-    console.log(address);
-
     this.setState((prevState) => ({
       ...prevState,
       address,
@@ -101,8 +99,8 @@ export class App extends Component {
   findAddress = async () => {
     try {
       const address = this.state.address;
-      // let apiCall = `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY.map}&`;
-      let apiCall = `http://open.mapquestapi.com/geocoding/v1/address?key=${API_KEY.map}&`;
+      // let apiCall = `https://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY.map}&`;
+      let apiCall = `https://open.mapquestapi.com/geocoding/v1/address?key=${API_KEY.map}&`;
 
       for (let property in address) {
         if (!!address[property]) {
